@@ -98,10 +98,20 @@ public class App {
     }
 
     public void printSalaries(ArrayList<Employee> salariesTable) {
+
+        //check if table is null
+        if(salariesTable == null){
+            System.out.println("No employees");
+            return;
+        }
+
+
         //this will format and print every Employee object in the salariesTable as a string
         System.out.println(String.format("%-10s %-15s %-20s %-8s", "Emp No", "First Name", "Last Name", "Salary"));
         // Loop over all employees in the list
         for (Employee emp : salariesTable) {
+            if (emp == null)
+                continue;
             String emp_string =
                     String.format("%-10s %-15s %-20s %-8s",
                             emp.emp_no, emp.first_name, emp.last_name, emp.salary);
